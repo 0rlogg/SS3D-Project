@@ -15,6 +15,11 @@ module.exports = {
         res.render('administration/crear');
     },
     guardar:function(req,res){
-        res.send(req.body);
+        console.log(req.body);
+
+    planeta.insertar(conexion,req.body,function (err){
+         res.redirect('/administration');
+
+        });
     }
 }
