@@ -4,5 +4,7 @@ const administrationController = require('../Controllers/administrationControlle
 
 /* GET home page. */
 router.get('/administration', administrationController.index);
+router.get('/crear', administrationController.crear);
+router.post("/", administrationController.guardar);
 
 module.exports = router;
