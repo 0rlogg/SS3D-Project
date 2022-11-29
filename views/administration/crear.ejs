@@ -1,6 +1,6 @@
 <%- include ../layouts/cabecera.ejs %> 
 
-<form method="post" action="../administration">
+<form method="post" action="/administration">
     
     <div class="form-group">
         <label for="my-input">Nombre</label>
@@ -19,7 +19,7 @@
 
     <div class="form-group">
         <label for="my-input">Imagen</label>
-        <input id="my-input" class="form-control-file" type="file" name="archivo">
+        <input id="my-input" class="form-control-file" type="file" name="archivo" enctype="multipart/form-data">
     </div>
 
     <button class="btn btn-primary" type="submit">Guardar</button>

@@ -1,7 +1,6 @@
 var conexion = require('../config/conexion');
 var planeta = require('../model/admin');
 var satelite = require('../model/satelites');
-
 module.exports = {
 
     index:function(req,res){
@@ -16,10 +15,8 @@ module.exports = {
     },
     guardar:function(req,res){
         console.log(req.body);
-
-    planeta.insertar(conexion,req.body,function (err){
-         res.redirect('/administration');
-
-        });
+        planeta.insertar(conexion,req.body,function (err){
+        res.redirect('administration');});
     }
 }
+
