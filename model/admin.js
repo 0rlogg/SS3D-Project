@@ -13,5 +13,9 @@ module.exports = {
     borrar:function(conexion, id, funcion){
         conexion.query("DELETE FROM Planetas WHERE id=?", [id], funcion);
 
+    },
+    actualizar:function(conexion, datos, funcion){
+        conexion.query("UPDATE Planetas SET nombre = ?, descripcion = ?, textura = ?, numsatelites = ? WHERE id = ?",
+         [datos.nombre,datos.descripcion,datos.archivo,datos.numsatelites, datos.id ],funcion);
     }
-} 
+}   
