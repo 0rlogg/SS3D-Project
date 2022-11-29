@@ -1,6 +1,8 @@
 var conexion = require('../config/conexion');
+const admin = require('../model/admin');
 var planeta = require('../model/admin');
 var satelite = require('../model/satelites');
+var borrar = require("fs");
 module.exports = {
 
     index:function(req,res){
@@ -17,6 +19,28 @@ module.exports = {
         console.log(req.body);
         planeta.insertar(conexion,req.body,function (err){
         res.redirect('administration');});
-    }
+    },
+    eliminar:function(req,res){
+
+        planeta.retornarDatosID(conexion, req.params.id, function(err, registros){
+            
+            var nombreimg = "public/img/" + (registros[0].imagen);            
+            if(borrar.existsSync(nombreimg)){
+                borrar.unlink(nombreimg);
+            }
+            planeta.borrar(conexion, req.params.id, function(err){
+
+                res.redirect('/administration');
+            });
+
+        });
+    },
+    editar:function(req,res){
+        planeta.retornarDatosID(conexion, req.params.id, function(err, registros){
+            console.log(registros[0]);
+            res.render('administration/editar', {planeta:registros[0]});
+            
+            });
+        }
 }
 

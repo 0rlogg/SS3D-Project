@@ -25,7 +25,22 @@
               <td> <%= planetas[planeta].descripcion %> </td>
               <td> <%= planetas[planeta].numsatelites %> </td>
               <td> <%= planetas[planeta].textura %> </td>
-              <td> EDITAR | BORRAR </td>
+              <td>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                  <form class="form-inline" method="get" action="/administration/editar/<%= planetas[planeta].id %>">
+                    <button class="btn btn-warning" type="submit">EDITAR</button>
+                  </form>
+                </td>
+                <td>
+                </div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                <form class="form-inline" method="post" action="/administration/eliminar/<%= planetas[planeta].id %>">
+                  <button class="btn btn-danger" type="submit">ELIMINAR</button>
+                </form>
+              </div> 
+           
+                
+              </td>
     
             </tr>
   

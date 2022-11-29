@@ -19,6 +19,8 @@ var rutaAlmacenamiento = multer.diskStorage({
 router.get('/administration', administrationController.index);
 router.get('/crear', administrationController.crear);
 router.post('/', cargar.single("archivo"), administrationController.guardar);
+router.post('/eliminar/:id', administrationController.eliminar);
+router.get('/editar/:id', administrationController.editar);
 
 module.exports = router;
 
