@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'Future Earth';
+    src: url('./fonts/Future-Earth.eot');
+    src: url('./fonts/Future-Earth.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Future-Earth.woff2') format('woff2'),
+    url('./fonts/Future-Earth.woff') format('woff'),
+    url('./fonts/future-earth.ttf') format('truetype'),
+    url('./fonts/Future-Earth.svg#Future-Earth') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background-color: #091019;
+}
+
+#logo{
+    position: fixed;
+    padding-left: 3px;
+}
+
+#camera_reset {
+    position: fixed;
+    left: 1%;
+    top: 95%;
+    height: 22px;
+    width: 150px;
+    padding-bottom: 2px;
+    z-index: 5;
+
+}
+
+#camera_reset i {
+    position: fixed;
+    left: 1%;
+    top: 95%;
+    color: #d0d0d2;
+}
+
+#camera_reset i:hover {
+    position: fixed;
+    left: 1%;
+    top: 95%;
+    color: #3e9093;
+
+}
+
+#menu{
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    height: 4%;
+    background-color: #091019;
+    opacity: 90%;
+    border-bottom: solid 1px #3e9093;
+    box-shadow: 0 0 40px #3e9093;
+}
+
+#imagencierre{
+    position: fixed;
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    top: 12%;
+    left: 77%;
+}
+
+#info{
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 76%;
+    width: 22%;
+    height: 79%;
+    background-color: #091019;
+    z-index: 2;
+    opacity: 90%;
+    border: 1px solid #3e9093 ;
+    box-shadow: 0 0 40px #3e9093;
+}
+
+#bloque_1_info{
+
+    width: 100%;
+    height: 2%;
+    border-bottom: solid 1px #3e9093;
+}
+
+#nav_menu{
+    position: absolute;
+    top: 0;
+    left: 90%;
+}
+
+
+#nav_menu_login{
+    position: absolute;
+    top: 0;
+    left: 96%;
+}
+
+.nav{
+    width: 4%;
+    height: 4%;
+}
+
+ul, ol {
+    list-style:none;
+}
+
+.nav > li {
+    float:left;
+}
+
+.nav li a {
+    background-color:#091019;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 12px;
+    display:block;
+}
+
+.nav li a:hover {
+    background-color:#091019;
+    border: 1px solid #3e9093;
+    box-shadow: 0 0 40px #3e9093;
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.nav li:hover > ul {
+    display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.nav li ul li ul {
+    right:-140px;
+    top:0;
+}

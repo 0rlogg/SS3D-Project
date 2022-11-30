@@ -1,11 +1,61 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome  <%= title %></p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/622ef7e060.js" crossorigin="anonymous"></script>
+    <script src="./three/build/three.min.js"></script>
+    <script src="./three/examples/js/controls/OrbitControls.js"></script>
+    <script src="./scripts/model.js" type="module"></script>
+    <link rel="stylesheet" href="./stylesheets/styleapp.css">
+    <title>04 - Webpack</title>
+</head>
+<body>
+<script>
+
+function botonInfoDesvanecer() {
+  let x = document.getElementById("info");
+  if (x.style.display === "none") {
+      x.style.display = "block";
+  } else {
+      x.style.display = "none";}
+}
+
+function botonInfo() {
+  let x = document.getElementById("info");
+  if (x.style.display === "none") {
+      x.style.display = "block";
+  } else {
+      x.style.display = "none";}
+}
+
+
+</script>
+<div id="info"><img id="imagencierre" onclick="botonInfoDesvanecer()" src="./img/cerrar.png" alt="imagen_cierre"></div>
+
+<div id="menu">
+    <div class="boton" onclick="botonMenuDesvanecer()">
+        <div id="logo"><img src="./img/logo.png" alt="a" width="170px" height="30px"></div>
+        <div id="nav_menu">
+            <ul class="nav">
+                <li><a href="">Planetas</a>
+                    <ul>
+                        <li><a id="Mercurio" onclick="botonInfo()">Mercurio</a></li>
+                        <li><a id="Venus" onclick="botonInfo()">Venus</a></li>
+                        <li><a id="Tierra" onclick="botonInfo()">Tierra</a></li>
+                        <li><a id="Marte" onclick="botonInfo()">Marte</a></li>
+                        <li><a id="Jupiter" onclick="botonInfo()">Jupiter</a></li>
+                        <li><a id="Saturno" onclick="botonInfo()">Saturno</a></li>
+                        <li><a id="Urano" onclick="botonInfo()">Urano</a></li>
+                        <li><a id="Neptuno" onclick="botonInfo()">Neptuno</a></li>
+                        <li><a id="Pluton" onclick="botonInfo()">Pluton</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="nav_menu_login"><ul class="nav"><li><a href="">Login</a></li></ul>
+      </div>
+</div>
+<div id="camera_reset" class="button"><i class="fa-solid fa-arrows-rotate"></i></div>
+</body>
 </html>
