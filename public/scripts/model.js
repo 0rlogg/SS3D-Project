@@ -51402,5 +51402,9 @@ function dynamicanimation(){
     renderer.render(scene,camera);}
 
 renderer.setAnimationLoop(staticanimation);
-document.getElementById('camera_reset').onclick = function (){renderer.setAnimationLoop(dynamicanimation);
-};
+document.getElementById('inicio').onclick = function (){renderer.setAnimationLoop(dynamicanimation);};
+document.getElementById('pausa').onclick = function (){renderer.setAnimationLoop(staticanimation);};
+document.getElementById('camera_reset').onclick = function (){orbit.update();};
+
+
+

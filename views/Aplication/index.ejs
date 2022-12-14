@@ -13,21 +13,7 @@
 <body>
 <script>
 
-function botonInfoDesvanecer() {
-  let x = document.getElementById("info");
-  if (x.style.display === "none") {
-      x.style.display = "block";
-  } else {
-      x.style.display = "none";}
-}
 
-function botonInfo() {
-  let x = document.getElementById("info");
-  if (x.style.display === "none") {
-      x.style.display = "block";
-  } else {
-      x.style.display = "none";}
-}
 
 
 </script>
@@ -36,26 +22,13 @@ function botonInfo() {
 <div id="menu">
     <div class="boton" onclick="botonMenuDesvanecer()">
         <div id="logo"><img src="./img/logo.png" alt="a" width="170px" height="30px"></div>
-        <div id="nav_menu">
-            <ul class="nav">
-                <li><a href="">Planetas</a>
-                    <ul>
-                        <li><a id="Mercurio" onclick="botonInfo()">Mercurio</a></li>
-                        <li><a id="Venus" onclick="botonInfo()">Venus</a></li>
-                        <li><a id="Tierra" onclick="botonInfo()">Tierra</a></li>
-                        <li><a id="Marte" onclick="botonInfo()">Marte</a></li>
-                        <li><a id="Jupiter" onclick="botonInfo()">Jupiter</a></li>
-                        <li><a id="Saturno" onclick="botonInfo()">Saturno</a></li>
-                        <li><a id="Urano" onclick="botonInfo()">Urano</a></li>
-                        <li><a id="Neptuno" onclick="botonInfo()">Neptuno</a></li>
-                        <li><a id="Pluton" onclick="botonInfo()">Pluton</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div id="nav_menu_login"><ul class="nav"><li><a href="">Login</a></li></ul>
-      </div>
+        <div id="nav_menu_login" class="button"><i class="fa-solid fa-arrow-right-to-bracket"></i></i></div>
+    </div>
 </div>
 <div id="camera_reset" class="button"><i class="fa-solid fa-arrows-rotate"></i></div>
+<div id="inicio" class="button"><i class="fa-solid fa-play"></i></div>
+<div id="pausa" class="button"><i class="fa-solid fa-pause"></i></div>
+<div id="info_controles" class="button"><i class="fa-solid fa-circle-question"></i></div>
+
 </body>
 </html>

@@ -28,6 +28,57 @@ body{
     padding-left: 3px;
 }
 
+#inicio {
+    position: fixed;
+    left: 1%;
+    top: 95%;
+    z-index: 5;
+}
+
+#inicio i {
+    position: fixed;
+    left: 1%;
+    top: 95%;
+    color: #d0d0d2;
+}
+
+#inicio i:hover {
+    position: fixed;
+    left: 1%;
+    top: 95%;
+    color: #3e9093;
+
+}
+
+#pausa {
+    position: fixed;
+    left: 3%;
+    top: 95%;
+    z-index: 5;
+}
+
+#pausa i {
+    position: fixed;
+    left: 3%;
+    top: 95%;
+    color: #d0d0d2;
+}
+
+#pausa i:hover {
+    position: fixed;
+    left: 3%;
+    top: 95%;
+    color: #3e9093;
+
+}
+
+#info_controles i {
+    position: fixed;
+    left: 5%;
+    top: 95%;
+    z-index: 5;
+}
+
 #camera_reset {
     position: fixed;
     left: 1%;
@@ -36,26 +87,67 @@ body{
     width: 150px;
     padding-bottom: 2px;
     z-index: 5;
-
 }
 
 #camera_reset i {
     position: fixed;
-    left: 1%;
+    left: 5%;
     top: 95%;
     color: #d0d0d2;
 }
 
 #camera_reset i:hover {
     position: fixed;
-    left: 1%;
+    left: 5%;
     top: 95%;
     color: #3e9093;
 
 }
 
-#menu{
+#info_controles {
+    position: fixed;
+    left: 7%;
+    top: 95%;
     z-index: 5;
+}
+
+#info_controles i {
+    position: fixed;
+    left: 7%;
+    top: 95%;
+    color: #d0d0d2;
+}
+
+#info_controles i:hover {
+    position: fixed;
+    left: 7%;
+    top: 95%;
+    color: #3e9093;
+}
+
+#nav_menu_login i{
+    position: fixed;
+    top: 1%;
+    left: 97%;
+    width: 15px;
+    height: 15px;
+    color: #d0d0d2;
+    z-index: 1; 
+}
+
+#nav_menu_login i :hover{
+    position: fixed;
+    top: 1%;
+    left: 98%;
+    width: 15px;
+    height: 15px;
+    color: #3e9093;
+    z-index: 1;
+}
+
+
+#menu{
+    z-index: 1;
     position: fixed;
     width: 100%;
     height: 4%;
@@ -93,19 +185,6 @@ body{
     width: 100%;
     height: 2%;
     border-bottom: solid 1px #3e9093;
-}
-
-#nav_menu{
-    position: absolute;
-    top: 0;
-    left: 90%;
-}
-
-
-#nav_menu_login{
-    position: absolute;
-    top: 0;
-    left: 96%;
 }
 
 .nav{
