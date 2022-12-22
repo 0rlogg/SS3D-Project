@@ -2,6 +2,7 @@
 //todo estudiar como programar las orbitas de las lunas, de la forma normal, como se ha creado la obita de los planetas
 //todo al sol o como se han creado los anillos, pero con satelites.
 
+
 /**
  * @license
  * Copyright 2010-2022 Three.js Authors
@@ -51229,7 +51230,7 @@ export { OrbitControls, MapControls };
 
 //-----------------------------------------------------------FIN ORBIT CONTROLS-------------------------------------------------------------------------
 
-//-----------------------------------------------------------Mi codigo-------------------------------------------------------------------------
+//-----------------------------------------------------------Modelo 3D-------------------------------------------------------------------------
 const stars = '/img/starsskybox.jpg'
 const solTexture = './img/8k_sun.jpg'
 const mercuryTexture = './img/8k_mercury.jpg'
@@ -51242,7 +51243,8 @@ const saturnRingTexture = './img/saturn_ring.png'
 const uranusTexture = './img/2k_uranus.jpg'
 const uranusRingTexture = './img/uranus_ring.png'
 const neptuneTexture = './img/2k_neptune.jpg'
-const plutoTexture = './img/2k_neptune.jpg'
+const plutoTexture = './img/pluto.jpg'
+const moonTexture = './img/8k_moon.jpg'
 
 //Creacion de escena
 const renderer = new WebGLRenderer();
@@ -51255,22 +51257,14 @@ renderer.shadowMap.enabled = true;
 const textureLoader = new TextureLoader();
 
 //Camara
-const camera = new PerspectiveCamera(55, window.innerWidth/window.innerHeight, 0.1, 1200000000000);
+const camera = new PerspectiveCamera(55, window.innerWidth/window.innerHeight, 0.1, 1200);
 const orbit = new OrbitControls(camera, renderer.domElement);
-camera.position.set(-2500000, 1900000, 100000);
+camera.position.set(-90, 140, 140);
 orbit.update();
 
 //Creacion de background 3D
 const cubeTextureLoader = new CubeTextureLoader();
 scene.background = cubeTextureLoader.load([stars,stars,stars,stars,stars,stars]);
-
-
-//DOM ELEMENTS
-//reset camera
-//document.getElementById('camera_reset').onclick = function (){camera.position.set(-780, 370, 320)};
-
-//Planet camera controls
-//document.getElementById('Mercurio').onclick = function ()
 
 // Hacer la app responsiva
 window.addEventListener('resize', function (){
@@ -51280,8 +51274,9 @@ window.addEventListener('resize', function (){
 
 
 //FUNCIONES
+
 //Funcion creación planetas
-function createPlanet (size,texture,position,ring,moon) {
+function createPlanet (size,texture,position, phistart, ring) {
     const Geometry = new SphereGeometry(size, 100, 100);
     const Material = new MeshStandardMaterial({map: textureLoader.load(texture)});
     const mesh = new Mesh(Geometry, Material);
@@ -51297,16 +51292,6 @@ function createPlanet (size,texture,position,ring,moon) {
         object.add(ringMesh);
         ringMesh.position.x = position;
         ringMesh.rotation.x = -0.5 * Math.PI;}
-
-    else if (moon){
-        const moonGeometry = new SphereGeometry(moon.innerRadius, moon.outerRadius,32);
-        const moonMaterial = new MeshBasicMaterial({
-            map: textureLoader.load(moon.texture)});
-
-        const moonMesh = new Mesh(moonGeometry, moonMaterial);
-        object.add(moonMesh);
-        moonMesh.position.x = position;
-        moonMesh.rotation.x = -0.5 * Math.PI;}
 
     scene.add(object);
     mesh.position.x = position;
@@ -51326,68 +51311,52 @@ function createEllipse(aX, yX, xRadius, Yradius, aStartAngle, aEndAngle, aClockw
 }
 
 //ELIPSES
-createEllipse(0, 0, 1082000,1082000, 2 * Math.PI, false, 0);//Mercurio
-createEllipse(0, 0, 1496000,1496000, 2 * Math.PI, false, 0);//Venus
-createEllipse(0, 0, 2279400,2279400, 2 * Math.PI, false, 0);//Tierra
-createEllipse(0, 0, 3775400,3775400, 2 * Math.PI, false, 0);//Marte
-createEllipse(0, 0, 7783300,7783300, 2 * Math.PI, false, 0);//Jupiter
-createEllipse(0, 0, 14294000,14294000, 2 * Math.PI, false, 0);//Saturno
-createEllipse(0, 0, 28709000,28709000, 2 * Math.PI, false, 0);//Urano
-createEllipse(0, 0, 4504300,4504300, 2 * Math.PI, false, 0);//Neptuno
-createEllipse(0, 0, 59135200,59135200, 2 * Math.PI, false, 0);//Neptuno
+createEllipse(0, 0, 28,28, 2 * Math.PI, false, 0);//Mercurio
+createEllipse(0, 0, 44,44, 2 * Math.PI, false, 0);//Venus
+createEllipse(0, 0, 74,74, 2 * Math.PI, false, 0);//Tierra
+createEllipse(0, 0, 100,100, 2 * Math.PI, false, 0);//Marte
+createEllipse(0, 0, 185,185, 2 * Math.PI, false, 0);//Saturno
+createEllipse(0, 0, 228,228, 2 * Math.PI, false, 0);//Saturno
+createEllipse(0, 0, 266,266, 2 * Math.PI, false, 0);//Urano
+createEllipse(0, 0, 300,300, 2 * Math.PI, false, 0);//Neptuno
+createEllipse(0, 0, 340,340, 2 * Math.PI, false, 0);//Neptuno
 
 
 //OBJETOS CELESTES
 //SOL
-const solGeometry = new SphereGeometry(695000, 130, 130);
+const solGeometry = new SphereGeometry(20, 130, 130);
 const solMaterial = new MeshBasicMaterial({map: textureLoader.load(solTexture)});
 const sol = new Mesh(solGeometry, solMaterial);
-const pointLight = new PointLight(0xFFFFFF, 2 ,1200000000000, 1 );
+const pointLight = new PointLight(0xFFFFFF, 2 ,120000, 1 );
 scene.add(pointLight, sol);
 
 //PLANETAS
-const mercury = createPlanet(2439.7, mercuryTexture, 1082000, false ,false);//Mercurio
-const venus = createPlanet(6051.8, venusTexture,1496000, false, false )
-const earth = createPlanet(6378.14, earthTexture, 2279400, false, {innerRadius: 10, outerRadius: 10});//Tierra
-const mars = createPlanet(3397.2, marsTexture, 3775400, false, false);//Marte
-const jupiter = createPlanet(71492.0, jupiterTexture, 7783300, false, false);//Jupiter
-const saturn = createPlanet(60268.0, saturnTexture,14294000 ,{innerRadius: 50, outerRadius: 50, texture: saturnRingTexture}, false);//Saturno
-const uranus = createPlanet(25559.0, uranusTexture, 28709000,{innerRadius: 50, outerRadius: 50, texture: uranusRingTexture}, false);//Urano
-const neptune = createPlanet(24746.0, neptuneTexture, 45043000, false, false);//Neptuno
-const pluto = createPlanet(1160.0, plutoTexture, 59135200, false, false);//Plutónç
+const mercury = createPlanet (3.2, mercuryTexture, 28, false);//Mercurio
+const venus = createPlanet( 5.8, venusTexture,44, false )
+const earth = createPlanet( 6, earthTexture, 74, false);//Tierra
+const mars = createPlanet(4, marsTexture, 100, false);//Marte
+const jupiter = createPlanet(12, jupiterTexture, 185, false);//Jupiter
+const saturn = createPlanet(10, saturnTexture,228 ,{innerRadius: 10, outerRadius: 20, texture: saturnRingTexture});//Saturno
+const uranus = createPlanet(7, uranusTexture, 266,{innerRadius: 7, outerRadius: 12, texture: uranusRingTexture});//Urano
+const neptune = createPlanet(7, neptuneTexture, 300, false);//Neptuno
+const pluto = createPlanet(2.8, plutoTexture, 340, false);//Plutónç
 
 //SATELITES
+const moon = createPlanet(1, moonTexture, 10, false)
 
 
 
 
-
-
-
-//TODO animacion en MAP
-
-function staticanimation(){
-    sol.rotateY(0.004);
-    mercury.mesh.rotateY(0.004);
-    venus.mesh.rotateY(0.002);
-    earth.mesh.rotateY(0.02);
-    mars.mesh.rotateY(0.018);
-    jupiter.mesh.rotateY(0.04);
-    saturn.mesh.rotateY(0.038);
-    uranus.mesh.rotateY(0.03);
-    neptune.mesh.rotateY(0.032);
-    pluto.mesh.rotateY(0.008);
-    renderer.render(scene,camera);}
 
 function dynamicanimation(){
     sol.rotateY(0.004);
     mercury.mesh.rotateY(0.004);
-    mercury.object.rotateY(0.00017);
+    mercury.object.rotateY(0.04);
     venus.mesh.rotateY(0.002);
-    venus.object.rotateY(0.00015);
+    venus.object.rotateY(0.015);
     earth.mesh.rotateY(0.02);
-    earth.object.rotateY(0.01);
-    mars.mesh.rotateY(0.018);
+    earth.object.rotateY(0.01); 
+	mars.mesh.rotateY(0.018);
     mars.object.rotateY(0.008);
     jupiter.mesh.rotateY(0.04);
     jupiter.object.rotateY(0.002);
@@ -51401,10 +51370,24 @@ function dynamicanimation(){
     pluto.object.rotateY(0.00007);
     renderer.render(scene,camera);}
 
+
+function staticanimation(){
+    sol.rotateY(0.004);
+    mercury.mesh.rotateY(0.004);
+    venus.mesh.rotateY(-0.002);
+    earth.mesh.rotateY(0.02);
+	earth.mesh.add(moon.object);
+	moon.mesh.rotateY(0.05);
+	moon.object.rotateY(-0.005);
+	mars.mesh.rotateY(0.018);
+    jupiter.mesh.rotateY(0.04);
+    saturn.mesh.rotateY(0.038);
+    uranus.mesh.rotateY(0.03);
+    neptune.mesh.rotateY(0.032);
+    pluto.mesh.rotateY(0.008);
+    renderer.render(scene,camera);}
+
 renderer.setAnimationLoop(staticanimation);
 document.getElementById('inicio').onclick = function (){renderer.setAnimationLoop(dynamicanimation);};
 document.getElementById('pausa').onclick = function (){renderer.setAnimationLoop(staticanimation);};
-document.getElementById('camera_reset').onclick = function (){orbit.update();};
-
-
-
+document.getElementById('camera_reset').onclick = function (){ camera.position.set(90, 140, 140);orbit.update();};

@@ -30,21 +30,21 @@ body{
 
 #inicio {
     position: fixed;
-    left: 1%;
+    left: 47%;
     top: 95%;
     z-index: 5;
 }
 
 #inicio i {
     position: fixed;
-    left: 1%;
+    left: 47%;
     top: 95%;
     color: #d0d0d2;
 }
 
 #inicio i:hover {
     position: fixed;
-    left: 1%;
+    left: 47%;
     top: 95%;
     color: #3e9093;
 
@@ -52,36 +52,29 @@ body{
 
 #pausa {
     position: fixed;
-    left: 3%;
+    left: 49%;
     top: 95%;
     z-index: 5;
 }
 
 #pausa i {
     position: fixed;
-    left: 3%;
+    left: 49%;
     top: 95%;
     color: #d0d0d2;
 }
 
 #pausa i:hover {
     position: fixed;
-    left: 3%;
+    left: 49%;
     top: 95%;
     color: #3e9093;
 
 }
 
-#info_controles i {
-    position: fixed;
-    left: 5%;
-    top: 95%;
-    z-index: 5;
-}
-
 #camera_reset {
     position: fixed;
-    left: 1%;
+    left:51%;
     top: 95%;
     height: 22px;
     width: 150px;
@@ -91,14 +84,14 @@ body{
 
 #camera_reset i {
     position: fixed;
-    left: 5%;
+    left: 51%;
     top: 95%;
     color: #d0d0d2;
 }
 
 #camera_reset i:hover {
     position: fixed;
-    left: 5%;
+    left: 51%;
     top: 95%;
     color: #3e9093;
 
@@ -106,21 +99,21 @@ body{
 
 #info_controles {
     position: fixed;
-    left: 7%;
+    left: 53%;
     top: 95%;
     z-index: 5;
 }
 
 #info_controles i {
     position: fixed;
-    left: 7%;
+    left: 53%;
     top: 95%;
     color: #d0d0d2;
 }
 
 #info_controles i:hover {
     position: fixed;
-    left: 7%;
+    left: 53%;
     top: 95%;
     color: #3e9093;
 }
@@ -157,78 +150,125 @@ body{
     box-shadow: 0 0 40px #3e9093;
 }
 
-#imagencierre{
+
+#menu_left {
+    bottom: 0;
+    height: 96%;
     position: fixed;
-    z-index: 4;
-    width: 40px;
-    height: 40px;
-    top: 12%;
-    left: 77%;
-}
-
-#info{
-    display: none;
-    position: absolute;
-    top: 10%;
-    left: 76%;
-    width: 22%;
-    height: 79%;
+    width: 300px;
+    transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateX(-100%);
+    left: 60px;
     background-color: #091019;
-    z-index: 2;
     opacity: 90%;
-    border: 1px solid #3e9093 ;
+    border-right: solid 1px #3e9093;
     box-shadow: 0 0 40px #3e9093;
 }
 
-#bloque_1_info{
+#menu_left.expanded {
+    transform: translateX(0%);
+    left: 0px;
+}
 
+.menu-inner {
     width: 100%;
-    height: 2%;
-    border-bottom: solid 1px #3e9093;
+    height: 100%;
+    position: relative;
 }
 
-.nav{
-    width: 4%;
-    height: 4%;
+.hamburger {
+    right: 20px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: 16%;	
 }
 
-ul, ol {
-    list-style:none;
+.hamburger .line {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
 }
 
-.nav > li {
-    float:left;
+.hamburger .line :hover {
+    width: 100%;
+    height: 4px;
+    background-color: #3e9093;
+    position: absolute;
 }
 
-.nav li a {
-    background-color:#091019;
-    color:#fff;
-    text-decoration:none;
-    padding:10px 12px;
-    display:block;
+.hamburger .line:nth-child(2) {
+    top: 50%;
+    margin-top: -2px;
 }
 
-.nav li a:hover {
-    background-color:#091019;
-    border: 1px solid #3e9093;
-    box-shadow: 0 0 40px #3e9093;
+.hamburger .line:nth-child(3) {
+    bottom: 0;
 }
 
-.nav li ul {
-    display:none;
-    position:absolute;
-    min-width:140px;
+ul.acorh,
+ul.acorh * {
+margin: 0;
+padding: 0;
+border: 0;
 }
 
-.nav li:hover > ul {
-    display:block;
+ul.acorh {
+margin: 10px auto;
+padding: 0;
+list-style: none;
+width: 100%;
+font-size: 18px;
 }
 
-.nav li ul li {
-    position:relative;
+ul.acorh li {
+list-style: none;
 }
 
-.nav li ul li ul {
-    right:-140px;
-    top:0;
+ul.acorh li a {
+display: block;
+padding: 10px 10px 10px 20px;
+background: #091019;
+color: #d0d0d2;
+border-bottom: 1px solid #3e9093;
+border-top: 1px solid #3e9093;
+text-decoration: none;
+box-sizing: border-box;
+}
+
+ul.acorh li ul {
+max-height: 0;
+margin: 0;
+padding: 0;
+list-style: none;
+overflow: hidden;
+transition: .3s all ease-in;
+}
+
+ul.acorh li li a {
+padding: 10px 10px 10px 40px;
+background: #091019;
+color: #d0d0d2;
+font-size: 16px;
+border: 0;
+border-bottom: 1px solid #3e9093;
+box-sizing: border-box;
+}
+
+ul.acorc li li:last-child a {
+border-bottom: 0;
+}
+
+ul.acorh li:hover ul {
+max-height: 300px;
+transition: .3s all ease-in;
+box-shadow: 0 0 40px #3e9093;
+
+}
+ul.acorh li a:hover {
+background: #091019;
+color: #d0d0d2;
+box-shadow: 0 0 40px #3e9093;
+
 }

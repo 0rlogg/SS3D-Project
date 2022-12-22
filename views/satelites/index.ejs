@@ -1,0 +1,51 @@
+<%- include ("../layouts/cabecera.ejs") %> 
+
+      <br>
+      <br>
+      <a href="/satelites/crear" class="btn btn-primary" type="button">Crear nuevo satelite</a>
+      <br>
+      <br>
+      <table class="table table-light">
+        <thead class="thead-light">
+          <tr>
+             <th>#</th>
+            <th>Nombre planeta</th>
+            <th>nombre satelite</th>
+            <th>Descripcion</th>
+          </tr>
+        </thead>
+        <tbody>
+  
+          <% for( let satelite = 0; satelite < satelites.length; satelite++ ) { %>
+          
+            <tr>
+              <td> <%= satelites[satelite].id %>  </td>
+              <td> <%= satelites[satelite].nombreplaneta %> </td> 
+              <td> <%= satelites[satelite].nombreluna %> </td> 
+              <td> <%= satelites[satelite].descripcion %> </td>
+              <td>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                  <form class="form-inline" method="get" action="/satelites/editar/<%= satelites[satelite].id %>">
+                    <button class="btn btn-warning" type="submit">EDITAR</button>
+                  </form>
+                </td>
+                <td>
+                </div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                <form class="form-inline" method="post" action="/satelites/eliminar/<%= satelites[satelite].id %>">
+                  <button class="btn btn-danger" type="submit">ELIMINAR</button>
+                </form>
+              </div> 
+           
+                
+              </td>
+    
+            </tr>
+  
+          <% } %>
+  
+          <br>
+  
+        </tbody>
+      </table>
+      <%- include ("../layouts/pie.ejs") %> 

@@ -1,7 +1,5 @@
 var conexion = require('../config/conexion');
-const admin = require('../model/admin');
 var planeta = require('../model/admin');
-var satelite = require('../model/satelites');
 var borrar = require("fs");
 module.exports = {
 
@@ -10,16 +8,20 @@ module.exports = {
         planeta.obtener(conexion,function (err, datos){
             console.log(datos);
             res.render('administration/index', {title: 'Admin', planetas:datos});
+            
         });
     },
+
     crear:function(req,res){
         res.render('administration/crear');
     },
+
     guardar:function(req,res){
         console.log(req.body);
         planeta.insertar(conexion,req.body,function (err){
         res.redirect('administration');});
     },
+    
     eliminar:function(req,res){
 
         planeta.retornarDatosID(conexion, req.params.id, function(err, registros){
@@ -49,6 +51,4 @@ module.exports = {
     } 
 
 }
-
- 
 

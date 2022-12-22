@@ -3,26 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/622ef7e060.js" crossorigin="anonymous"></script>
-    <script src="./three/build/three.min.js"></script>
-    <script src="./three/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://kit.fontawesome.com/622ef7e060.js" crossorigin="anonymous"></script>   
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="./scripts/model.js" type="module"></script>
     <link rel="stylesheet" href="./stylesheets/styleapp.css">
     <title>04 - Webpack</title>
 </head>
 <body>
-<script>
-
-
-
-
-</script>
-<div id="info"><img id="imagencierre" onclick="botonInfoDesvanecer()" src="./img/cerrar.png" alt="imagen_cierre"></div>
-
 <div id="menu">
     <div class="boton" onclick="botonMenuDesvanecer()">
         <div id="logo"><img src="./img/logo.png" alt="a" width="170px" height="30px"></div>
-        <div id="nav_menu_login" class="button"><i class="fa-solid fa-arrow-right-to-bracket"></i></i></div>
+        <div id="nav_menu_login" class="button"><a href="/administration"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
+    </div>
+</div>
+<script>
+$(window).on('load',function(){
+	var height = window.innerHeight,
+  x= 0, y= height/2,
+	curveX = 10,
+	curveY = 0,
+	targetX = 0,
+	xitteration = 0,
+	yitteration = 0,
+	menuExpanded = false;
+	blob = $('#blob'),
+	blobPath = $('#blob-path'),
+	hamburger = $('.hamburger');
+	$('.hamburger, .menu-inner').on('mouseenter', function(){
+		$(this).parent().addClass('expanded');
+		menuExpanded = true;
+	});
+
+	$('.menu-inner').on('mouseleave', function(){
+		menuExpanded = false;
+		$(this).parent().removeClass('expanded');
+	});
+
+	function easeOutExpo(currentIteration, startValue, changeInValue, totalIterations) {
+		return changeInValue * (-Math.pow(2, -10 * currentIteration / totalIterations) + 1) + startValue;
+	}
+
+	var hoverZone = 150;
+	var expandAmount = 20;
+	
+	function svgCurve() {
+		if ((curveX > x-1) && (curveX < x+1)) {
+			xitteration = 0;
+		} else {
+			if (menuExpanded) {
+				targetX = 0;
+			} else {
+				xitteration = 0;
+				if (x > hoverZone) {
+					targetX = 0;
+				} else {
+					targetX = -(((60+expandAmount)/100)*(x-hoverZone));
+				}			
+			}
+			xitteration++;
+		}
+
+		if ((curveY > y-1) && (curveY < y+1)) {
+			yitteration = 0;
+		} else {
+			yitteration = 0;
+			yitteration++;	
+		}
+
+		curveX = easeOutExpo(xitteration, curveX, targetX-curveX, 100);
+		curveY = easeOutExpo(yitteration, curveY, y-curveY, 100);
+
+		var anchorDistance = 200;
+		var curviness = anchorDistance - 40;
+
+		var newCurve2 = "M60,"+height+"H0V0h60v"+(curveY-anchorDistance)+"c0,"+curviness+","+curveX+","+curviness+","+curveX+","+anchorDistance+"S60,"+(curveY)+",60,"+(curveY+(anchorDistance*2))+"V"+height+"z";
+
+		blobPath.attr('d', newCurve2);
+
+		blob.width(curveX+60);
+
+		hamburger.css('transform', 'translate('+curveX+'px, '+curveY+'px)');
+    
+    $('h2').css('transform', 'translateY('+curveY+'px)');
+		window.requestAnimationFrame(svgCurve);
+	}
+
+	window.requestAnimationFrame(svgCurve);
+	
+});
+
+</script>
+<script>
+    $(document).ready(main);
+
+var contador = 1;
+
+function main () {
+	$('.menu_bar').click(function(){
+		if (contador == 1) {
+			$('div').animate({
+				left: '0'
+			});
+			contador = 0;
+		} else {
+			contador = 1;
+			$('div').animate({
+				left: '-100%'
+			});
+		}
+	});
+
+	// Mostramos y ocultamos submenus
+	$('.submenu').click(function(){
+		$(this).children('.children').slideToggle();
+	});
+}
+</script>
+
+<div id="menu_left">
+    <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="menu-inner">
+        <ul class="acorh">
+            <li id="Mercurio"><a href="#"><%= planetas[0].nombre %> </a></li>
+            <li id="Venus"><a href="#"><%= planetas[1].nombre %></a>
+            </li>
+            <li id="Tierra"><a href="#"><%= planetas[2].nombre %></a>
+              <ul>
+                <li id="Luna"><a href=""></a><%=  %></li>
+              </ul>
+            </li>
+            <li id="Marte"><a href="#"><%= planetas[3].nombre %></a>
+                <ul>
+                    <li id="Fobos"><a href="">Fobos</a></li>
+                    <li id="Deimos"><a href="">Deimos</a></li>
+                </ul>
+            </li>
+            <li id="Jupiter"><a href="#"><%= planetas[4].nombre %></a>
+                <ul>
+                    <li id="Io"><a href="">Io</a></li>
+                    <li id="Europa"><a href="">Europa</a></li>
+                    <li id="Ganimedes"><a href="">Ganimedes</a></li>
+                    <li id="Calisto"><a href="">Calisto</a></li>
+                </ul>
+            </li>
+            <li id="Saturno"><a href="#"><%= planetas[5].nombre %></a>
+                <ul>
+                    <li id="Mimas"><a href="">Mimas</a></li>
+                    <li id="Encelado"><a href="">Encelado</a></li>
+                    <li id="Tetis"><a href="">Tetis</a></li>
+                    <li id="Rea"><a href="">Rea</a></li>
+                    <li id="Titan"><a href="">Titan</a></li>
+                    <li id="Hiperion"><a href="">Hiperion</a></li>
+                </ul>
+            </li>
+            <li id="Urano"><a href="#"><%= planetas[6].nombre %></a>
+                <ul>
+                    <li id="Miranda"><a href="">Miranda</a></li>
+                    <li id="Ariel"><a href="">Ariel</a></li>
+                    <li id="Umbriel"><a href="">Umbriel</a></li>
+                    <li id="Titania"><a href="">Titania</a></li>
+                    <li id="Oberon"><a href="">Oberon</a></li>
+                </ul>
+            </li>
+            <li id="Neptuno"><a href="#"><%= planetas[7].nombre %></a>
+                <ul>
+                    <li id="Proteo"><a href="">Proteo</a></li>
+                    <li id="Triton"><a href="">Triton</a></li>
+                    <li id="Nereida"><a href="">Nereida</a></li>
+                    <li id="Halimede"><a href="">Halimede</a></li>
+                    <li id="Sao"><a href="">Sao</a></li>
+                </ul>
+            </li>
+            <li id="Pluton"><a href="#"><%= planetas[8].nombre %></a>
+                <ul>
+                    <li id="Caronte"><a href="">Caronte</a></li>
+                    <li id="Nix"><a href="">Nix</a></li>
+                    <li id="Estigia"><a href="">Estigia</a></li>
+                    <li id="Cerbero"><a href="">Cerbero</a></li>
+                    <li id="Hidra"><a href="">Hidra</a></li>
+                </ul>
+            </li>
+          </ul>
     </div>
 </div>
 <div id="camera_reset" class="button"><i class="fa-solid fa-arrows-rotate"></i></div>

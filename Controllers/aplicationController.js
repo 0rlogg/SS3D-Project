@@ -1,12 +1,27 @@
 var conexion = require('../config/conexion');
-const admin = require('../model/admin');
-var planeta = require('../model/admin');
-var satelite = require('../model/satelites');
-var borrar = require("fs");
-
+var planeta = require('../model/app');
+var satelite = require('../model/satelites')
 module.exports={
 
-    index:function(req, res){
-        res.render('Aplication/index', { title: 'SolarSystem' });
-    }    
+index:function(req,res){
+
+    planeta.obtener(conexion,function (err, datos){
+        console.log(datos);
+        res.render('Aplication/index', {title: 'SolarSystem', planetas:datos});
+        });
+    
+    satelite.obtener(conexion,function (err, datos){
+        console.log(datos);
+        res.render('Aplication/index', {title: 'SolarSystem', satelites:datos});
+        });
+    },
+    
+    guardar:function(req,res){
+        console.log(req.body);
+        
+        planeta.insertar(conexion,req.body,function (err){
+        res.redirect('Aplication');});
+    },
 }
+
+

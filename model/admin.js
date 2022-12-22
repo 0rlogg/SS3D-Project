@@ -16,6 +16,6 @@ module.exports = {
     },
     actualizar:function(conexion, datos, funcion){
         conexion.query("UPDATE Planetas SET nombre = ?, descripcion = ?, textura = ?, numsatelites = ? WHERE id = ?",
-         [datos.nombre,datos.descripcion,datos.archivo,datos.numsatelites, datos.id ],funcion);
+         [datos.nombre,datos.descripcion,datos.archivo,datos.numsatelites, datos.id],funcion);
     }
 }   

@@ -1,0 +1,52 @@
+<%- include ("../layouts/cabecera.ejs")%> 
+
+      <br>
+      <br>
+      <a href="/estrellas/crear" class="btn btn-primary" type="button">Crear nueva estrella</a>
+      <br>
+      <br>
+      <table class="table table-light">
+        <thead class="thead-light">
+          <tr>
+             <th>#</th>
+            <th>nombre estrella</th>
+            <th>descripcion</th>
+            <th>textura</th>
+          </tr>
+        </thead>
+        <tbody>
+  
+          <% for( let estrella = 0; estrella < estrellas.length; estrella++ ) { %>
+          
+            <tr>
+              <td> <%= estrellas[estrella].id %>  </td>
+              <td> <%= estrellas[estrella].nombreestrella %> </td> 
+              <td> <%= estrellas[estrella].descripcion %> </td>
+              <td> <%= estrellas[estrella].textura %> </td>
+              <td>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                  <form class="form-inline" method="get" action="/estrellas/editar/<%= estrellas[estrella].id %>">
+                    <button class="btn btn-warning" type="submit">EDITAR</button>
+                  </form>
+                </td>
+                <td>
+                </div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                <form class="form-inline" method="post" action="/estrellas/eliminar/<%= estrellas[estrella].id %>">
+                  <button class="btn btn-danger" type="submit">ELIMINAR</button>
+                </form>
+              </div> 
+           
+                
+              </td>
+    
+            </tr>
+  
+          <% } %>
+  
+          <br>
+  
+        </tbody>
+      </table>
+      <%- include ("../layouts/pie.ejs")%> 
+

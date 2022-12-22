@@ -1,26 +1,11 @@
 module.exports = {
-    obtenerMercurio:function(conexion,funcion){
-        conexion.query("SELECT mercurio FROM Planetas",funcion);
-    },
-    obtenerVenus:function(conexion,funcion){
+    obtener:function(conexion,funcion){
         conexion.query("SELECT * FROM Planetas",funcion);
     },
-    obtenerTierra:function(conexion,funcion){
-        conexion.query("SELECT * FROM Planetas",funcion);
+
+    insertar:function(conexion, datos, funcion){
+        conexion.query("INSERT INTO Planetas (nombre, descripcion, textura, numsatelites) VALUES (?,?,?,?)",
+         [datos.nombre,datos.descripcion,datos.archivo,datos.numsatelites ],funcion);    
     },
-    obtenerMarte:function(conexion,funcion){
-        conexion.query("SELECT * FROM Planetas",funcion);
-    },
-    obtenerJupiter:function(conexion,funcion){
-        conexion.query("SELECT * FROM Planetas",funcion);
-    },
-    obtenerSaturno:function(conexion,funcion){
-        conexion.query("SELECT * FROM Planetas",funcion);
-    },
-    obtenerUrano:function(conexion,funcion){
-        conexion.query("SELECT * FROM Planetas",funcion);
-    },
-    obtenerPluton:function(conexion,funcion){
-        conexion.query("SELECT * FROM Planetas",funcion);
-    }
-}   
+
+}
