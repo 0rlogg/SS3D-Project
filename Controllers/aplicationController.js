@@ -1,6 +1,8 @@
 var conexion = require('../config/conexion');
 var planeta = require('../model/app');
 var satelite = require('../model/satelites')
+var estrella = require('../model/estrellas')
+
 module.exports={
 
 index:function(req,res){
@@ -9,13 +11,8 @@ index:function(req,res){
         console.log(datos);
         res.render('Aplication/index', {title: 'SolarSystem', planetas:datos});
         });
-    
-    satelite.obtener(conexion,function (err, datos){
-        console.log(datos);
-        res.render('Aplication/index', {title: 'SolarSystem', satelites:datos});
-        });
+        
     },
-    
     guardar:function(req,res){
         console.log(req.body);
         

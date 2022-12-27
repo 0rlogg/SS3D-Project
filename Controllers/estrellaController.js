@@ -20,7 +20,7 @@ module.exports = {
         console.log(req.body);
         estrella.insertar(conexion,req.body,function (err){
         res.redirect('estrellas');});
-    },
+    }, 
     
     eliminar:function(req,res){
 

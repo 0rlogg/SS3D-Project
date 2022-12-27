@@ -51245,7 +51245,21 @@ const uranusRingTexture = './img/uranus_ring.png'
 const neptuneTexture = './img/2k_neptune.jpg'
 const plutoTexture = './img/pluto.jpg'
 const moonTexture = './img/8k_moon.jpg'
-
+const europaTexture = './img/europa-texture.jpg'
+const ioTexture = './img/io.jpg'
+const ganimedesTexture = './img/ganimedes.jpg'
+const calistoTexture = './img/calisto.jpg'
+const enceladoTexture = './img/encelado.jpg'
+const mimasTexture = './img/mimas.jpg'
+const titanTexture = './img/titan.jpg'
+const tetisTexture = './img/tetis.jpg'
+const tritonTexture = './img/triton.jpg'
+const umbrielTexture = './img/umbriel.jpg'
+const titaniaTexture = './img/titania.jpg'
+const oberonTexture = './img/oberon.jpg' 
+const arielTexture = './img/ariel.jpg'
+const mirandaTexture = './img/miranda.jpg'
+const caronteTexture = './img/caronte.jpg'
 //Creacion de escena
 const renderer = new WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -51276,7 +51290,7 @@ window.addEventListener('resize', function (){
 //FUNCIONES
 
 //Funcion creación planetas
-function createPlanet (size,texture,position, phistart, ring) {
+function createPlanet (size,texture,position, ring) {
     const Geometry = new SphereGeometry(size, 100, 100);
     const Material = new MeshStandardMaterial({map: textureLoader.load(texture)});
     const mesh = new Mesh(Geometry, Material);
@@ -51316,10 +51330,10 @@ createEllipse(0, 0, 44,44, 2 * Math.PI, false, 0);//Venus
 createEllipse(0, 0, 74,74, 2 * Math.PI, false, 0);//Tierra
 createEllipse(0, 0, 100,100, 2 * Math.PI, false, 0);//Marte
 createEllipse(0, 0, 185,185, 2 * Math.PI, false, 0);//Saturno
-createEllipse(0, 0, 228,228, 2 * Math.PI, false, 0);//Saturno
-createEllipse(0, 0, 266,266, 2 * Math.PI, false, 0);//Urano
-createEllipse(0, 0, 300,300, 2 * Math.PI, false, 0);//Neptuno
-createEllipse(0, 0, 340,340, 2 * Math.PI, false, 0);//Neptuno
+createEllipse(0, 0, 266,266, 2 * Math.PI, false, 0);//Saturno
+createEllipse(0, 0, 340,340, 2 * Math.PI, false, 0);//Urano
+createEllipse(0, 0, 420,420, 2 * Math.PI, false, 0);//Neptuno
+createEllipse(0, 0, 500,500, 2 * Math.PI, false, 0);//Neptuno
 
 
 //OBJETOS CELESTES
@@ -51336,38 +51350,98 @@ const venus = createPlanet( 5.8, venusTexture,44, false )
 const earth = createPlanet( 6, earthTexture, 74, false);//Tierra
 const mars = createPlanet(4, marsTexture, 100, false);//Marte
 const jupiter = createPlanet(12, jupiterTexture, 185, false);//Jupiter
-const saturn = createPlanet(10, saturnTexture,228 ,{innerRadius: 10, outerRadius: 20, texture: saturnRingTexture});//Saturno
-const uranus = createPlanet(7, uranusTexture, 266,{innerRadius: 7, outerRadius: 12, texture: uranusRingTexture});//Urano
-const neptune = createPlanet(7, neptuneTexture, 300, false);//Neptuno
-const pluto = createPlanet(2.8, plutoTexture, 340, false);//Plutónç
+const saturn = createPlanet(10, saturnTexture,266 ,{innerRadius: 10, outerRadius: 20, texture: saturnRingTexture});//Saturno
+const uranus = createPlanet(7, uranusTexture, 340,{innerRadius: 7, outerRadius: 12, texture: uranusRingTexture});//Urano
+const neptune = createPlanet(7, neptuneTexture, 420, false);//Neptuno
+const pluto = createPlanet(2.8, plutoTexture, 500, false);//Plutónç
 
 //SATELITES
-const moon = createPlanet(1, moonTexture, 10, false)
+const moon = createPlanet(1.7, moonTexture, 10, false)
+
+const europa = createPlanet(1.5, europaTexture, 20, false)
+const io = createPlanet(1.8, ioTexture, 15, false)
+const ganimedes = createPlanet(2.6, ganimedesTexture, 30, false)
+const calisto = createPlanet(2.6, calistoTexture, 40, false)
+
+const encelado = createPlanet(0.600, enceladoTexture, 15, false)
+const mimas = createPlanet(0.350, mimasTexture, 20, false)
+const titan = createPlanet(2.7, titanTexture, 25, false)
+const tetis = createPlanet(1, tetisTexture, 30, false)
+
+const umbriel = createPlanet(1.169, umbrielTexture, 10, false)
+const titania = createPlanet(1.576, titaniaTexture, 20, false)
+const oberon = createPlanet(1.522, oberonTexture, 25, false)
+const ariel = createPlanet(1.157, arielTexture, 35, false)
+const miranda = createPlanet(0.471, mirandaTexture, 30, false)
 
 
+const triton = createPlanet(2.7, tritonTexture, 15, false)
 
+const caronte = createPlanet(1.2, caronteTexture, 15, false)
 
 
 function dynamicanimation(){
     sol.rotateY(0.004);
+
     mercury.mesh.rotateY(0.004);
     mercury.object.rotateY(0.04);
+
     venus.mesh.rotateY(0.002);
     venus.object.rotateY(0.015);
+
     earth.mesh.rotateY(0.02);
     earth.object.rotateY(0.01); 
+	moon.mesh.rotateY(0.05);
+	moon.object.rotateY(0.1);
+	
 	mars.mesh.rotateY(0.018);
     mars.object.rotateY(0.008);
+
     jupiter.mesh.rotateY(0.04);
     jupiter.object.rotateY(0.002);
+	europa.mesh.rotateY(0.05);
+	europa.object.rotateY(0.066);
+	io.mesh.rotateY(0.05);
+	io.object.rotateY(0.032);
+	ganimedes.mesh.rotateY(0.05);
+	ganimedes.object.rotateY(0.0133);
+	calisto.mesh.rotateY(0.05);
+	calisto.object.rotateY(0.0315);
+
     saturn.mesh.rotateY(0.038);
     saturn.object.rotateY(0.0009);
+	encelado.mesh.rotateY(0.0025);
+	encelado.object.rotateY(0.0025);
+	mimas.mesh.rotateY(0.0018);
+	mimas.object.rotateY(0.0018);
+	titan.mesh.rotateY(0.0296);
+	titan.object.rotateY(0.0296);
+	tetis.mesh.rotateY(0.03);
+	tetis.object.rotateY(0.0035);
+	
     uranus.mesh.rotateY(0.03);
     uranus.object.rotateY(0.0004);
+	umbriel.mesh.rotateY(0.04);
+	umbriel.object.rotateY(0.076);
+	titania.mesh.rotateY(0.08);
+	titania.object.rotateY(0.0161);
+	oberon.mesh.rotateY(0.013);
+	oberon.object.rotateY(0.0241);
+	ariel.mesh.rotateY(0.02);
+	ariel.object.rotateY(0.0046);
+	miranda.mesh.rotateY(0.01);
+	miranda.object.rotateY(0.026);
+
     neptune.mesh.rotateY(0.032);
     neptune.object.rotateY(0.0001);
+	triton.mesh.rotateY(0.0109);
+	triton.object.rotateY(0.0109);
+
     pluto.mesh.rotateY(0.008);
     pluto.object.rotateY(0.00007);
+	caronte.mesh.rotateY(0.06);
+	caronte.object.rotateY(0.0118);
+
     renderer.render(scene,camera);}
 
 
@@ -51375,16 +51449,73 @@ function staticanimation(){
     sol.rotateY(0.004);
     mercury.mesh.rotateY(0.004);
     venus.mesh.rotateY(-0.002);
+
     earth.mesh.rotateY(0.02);
 	earth.mesh.add(moon.object);
 	moon.mesh.rotateY(0.05);
-	moon.object.rotateY(-0.005);
+	moon.object.rotateY(0.1);
+	
 	mars.mesh.rotateY(0.018);
+
     jupiter.mesh.rotateY(0.04);
+	jupiter.mesh.add(europa.object);
+	europa.mesh.rotateY(0.05);
+	europa.object.rotateY(0.066);
+	jupiter.mesh.add(io.object);
+	io.mesh.rotateY(0.05);
+	io.object.rotateY(0.032);
+	jupiter.mesh.add(ganimedes.object);
+	ganimedes.mesh.rotateY(0.05);
+	ganimedes.object.rotateY(0.0133);
+	jupiter.mesh.add(calisto.object);
+	calisto.mesh.rotateY(0.05);
+	calisto.object.rotateY(0.0315);
+
+
+
     saturn.mesh.rotateY(0.038);
-    uranus.mesh.rotateY(0.03);
-    neptune.mesh.rotateY(0.032);
+	saturn.mesh.add(encelado.object);
+	encelado.mesh.rotateY(0.0025);
+	encelado.object.rotateY(0.0025);
+	saturn.mesh.add(mimas.object);
+	mimas.mesh.rotateY(0.0018);
+	mimas.object.rotateY(0.0018);
+	saturn.mesh.add(titan.object);
+	titan.mesh.rotateY(0.0296);
+	titan.object.rotateY(0.0296);
+	saturn.mesh.add(tetis.object);
+	tetis.mesh.rotateY(0.03);
+	tetis.object.rotateY(0.0035);
+
+    uranus.mesh.rotateY(0.032);
+	uranus.mesh.add(umbriel.object);
+	umbriel.mesh.rotateY(0.04);
+	umbriel.object.rotateY(0.076);
+	uranus.mesh.add(titania.object);
+	titania.mesh.rotateY(0.08);
+	titania.object.rotateY(0.0161);
+	uranus.mesh.add(oberon.object);
+	oberon.mesh.rotateY(0.013);
+	oberon.object.rotateY(0.0241);
+	uranus.mesh.add(ariel.object);
+	ariel.mesh.rotateY(0.02);
+	ariel.object.rotateY(0.0046);
+	uranus.mesh.add(miranda.object);
+	miranda.mesh.rotateY(0.01);
+	miranda.object.rotateY(0.026);
+
+
+    neptune.mesh.rotateY(0.03);
+	neptune.mesh.add(triton.object);
+	triton.mesh.rotateY(0.0109);
+	triton.object.rotateY(0.0109);
+
     pluto.mesh.rotateY(0.008);
+	pluto.mesh.add(caronte.object);
+	caronte.mesh.rotateY(0.06);
+	caronte.object.rotateY(0.0118);
+
+
     renderer.render(scene,camera);}
 
 renderer.setAnimationLoop(staticanimation);

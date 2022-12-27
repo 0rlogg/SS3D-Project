@@ -22,7 +22,7 @@
               <td> <%= estrellas[estrella].id %>  </td>
               <td> <%= estrellas[estrella].nombreestrella %> </td> 
               <td> <%= estrellas[estrella].descripcion %> </td>
-              <td> <%= estrellas[estrella].textura %> </td>
+              <td><img class="img-thumbnail" src="img/<%= estrellas[estrella].textura %>"> </td>
               <td>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                   <form class="form-inline" method="get" action="/estrellas/editar/<%= estrellas[estrella].id %>">

@@ -1,28 +1,28 @@
 <%- include ("../layouts/cabecera.ejs") %> 
 
-<form method="post" action="/administration">
+<form  action="/administration" method="post"  >
     
     <div class="form-group">
         <label for="my-input">Nombre</label>
-        <input id="my-input" class="form-control" type="text" name="nombre">
+        <input id="my-input" class="form-control" type="text" name="nombre" minlength="3" required>
     </div>
 
     <div class="form-group">
         <label for="my-input">Descripcion</label>
-        <input id="my-input" class="form-control" type="text" name="descripcion">
+        <input id="my-input" class="form-control" type="text" name="descripcion" minlength="10" required>
     </div>
 
     <div class="form-group">
         <label for="my-input">Numero de satelites</label>
-        <input id="my-input" class="form-control" type="text" name="numsatelites">
+        <input id="my-input" class="form-control" type="number" name="numsatelites"  required>
     </div>
 
     <div class="form-group">
         <label for="my-input">Imagen</label>
-        <input id="my-input" class="form-control-file" type="file" name="archivo" enctype="multipart/form-data">
+        <input id="my-input" class="form-control-file" type="file" name="textura">
     </div>
 
-    <button class="btn btn-primary" type="submit">Guardar</button>
+    <button class="btn btn-primary" type="submit" enctype="multipart/form-data" >Guardar</button>
 
 </form>
 

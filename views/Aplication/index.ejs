@@ -6,119 +6,18 @@
     <script src="https://kit.fontawesome.com/622ef7e060.js" crossorigin="anonymous"></script>   
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="./scripts/model.js" type="module"></script>
+    <script src="./scripts/informaciondesplegable.js"></script>
     <link rel="stylesheet" href="./stylesheets/styleapp.css">
-    <title>04 - Webpack</title>
+    <title>SS3D - Solar System 3D</title>
 </head>
 <body>
 <div id="menu">
-    <div class="boton" onclick="botonMenuDesvanecer()">
+    <div class="boton">
         <div id="logo"><img src="./img/logo.png" alt="a" width="170px" height="30px"></div>
         <div id="nav_menu_login" class="button"><a href="/administration"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
     </div>
 </div>
-<script>
-$(window).on('load',function(){
-	var height = window.innerHeight,
-  x= 0, y= height/2,
-	curveX = 10,
-	curveY = 0,
-	targetX = 0,
-	xitteration = 0,
-	yitteration = 0,
-	menuExpanded = false;
-	blob = $('#blob'),
-	blobPath = $('#blob-path'),
-	hamburger = $('.hamburger');
-	$('.hamburger, .menu-inner').on('mouseenter', function(){
-		$(this).parent().addClass('expanded');
-		menuExpanded = true;
-	});
-
-	$('.menu-inner').on('mouseleave', function(){
-		menuExpanded = false;
-		$(this).parent().removeClass('expanded');
-	});
-
-	function easeOutExpo(currentIteration, startValue, changeInValue, totalIterations) {
-		return changeInValue * (-Math.pow(2, -10 * currentIteration / totalIterations) + 1) + startValue;
-	}
-
-	var hoverZone = 150;
-	var expandAmount = 20;
-	
-	function svgCurve() {
-		if ((curveX > x-1) && (curveX < x+1)) {
-			xitteration = 0;
-		} else {
-			if (menuExpanded) {
-				targetX = 0;
-			} else {
-				xitteration = 0;
-				if (x > hoverZone) {
-					targetX = 0;
-				} else {
-					targetX = -(((60+expandAmount)/100)*(x-hoverZone));
-				}			
-			}
-			xitteration++;
-		}
-
-		if ((curveY > y-1) && (curveY < y+1)) {
-			yitteration = 0;
-		} else {
-			yitteration = 0;
-			yitteration++;	
-		}
-
-		curveX = easeOutExpo(xitteration, curveX, targetX-curveX, 100);
-		curveY = easeOutExpo(yitteration, curveY, y-curveY, 100);
-
-		var anchorDistance = 200;
-		var curviness = anchorDistance - 40;
-
-		var newCurve2 = "M60,"+height+"H0V0h60v"+(curveY-anchorDistance)+"c0,"+curviness+","+curveX+","+curviness+","+curveX+","+anchorDistance+"S60,"+(curveY)+",60,"+(curveY+(anchorDistance*2))+"V"+height+"z";
-
-		blobPath.attr('d', newCurve2);
-
-		blob.width(curveX+60);
-
-		hamburger.css('transform', 'translate('+curveX+'px, '+curveY+'px)');
-    
-    $('h2').css('transform', 'translateY('+curveY+'px)');
-		window.requestAnimationFrame(svgCurve);
-	}
-
-	window.requestAnimationFrame(svgCurve);
-	
-});
-
-</script>
-<script>
-    $(document).ready(main);
-
-var contador = 1;
-
-function main () {
-	$('.menu_bar').click(function(){
-		if (contador == 1) {
-			$('div').animate({
-				left: '0'
-			});
-			contador = 0;
-		} else {
-			contador = 1;
-			$('div').animate({
-				left: '-100%'
-			});
-		}
-	});
-
-	// Mostramos y ocultamos submenus
-	$('.submenu').click(function(){
-		$(this).children('.children').slideToggle();
-	});
-}
-</script>
+<script src="./scripts/menu.js"></script>
 
 <div id="menu_left">
     <div class="hamburger">
@@ -129,68 +28,176 @@ function main () {
 
     <div class="menu-inner">
         <ul class="acorh">
-            <li id="Mercurio"><a href="#"><%= planetas[0].nombre %> </a></li>
-            <li id="Venus"><a href="#"><%= planetas[1].nombre %></a>
+           <li><a href="#" id="Mercurio" onclick="mercurio()"><%= planetas[0].nombre %> </a></li>
+            <li id="Venus"><a href="#"  onclick="venus()"><%= planetas[1].nombre %></a>
             </li>
-            <li id="Tierra"><a href="#"><%= planetas[2].nombre %></a>
+            <li id="Tierra"><a href="#" onclick="tierra()"><%= planetas[2].nombre %></a>
               <ul>
-                <li id="Luna"><a href=""></a><%=  %></li>
+                <li id="Luna"><a href="#"  onclick="myFunction(event)">Luna</a></li>
               </ul>
             </li>
-            <li id="Marte"><a href="#"><%= planetas[3].nombre %></a>
+            <li id="Marte"><a href="#"  onclick="marte()"><%= planetas[3].nombre %></a>
                 <ul>
-                    <li id="Fobos"><a href="">Fobos</a></li>
-                    <li id="Deimos"><a href="">Deimos</a></li>
+                    <li id="Fobos"><a href="#"  onclick="myFunction(event)">Fobos</a></li>
+                    <li id="Deimos"><a href="#"  onclick="myFunction(event)">Deimos</a></li>
                 </ul>
             </li>
-            <li id="Jupiter"><a href="#"><%= planetas[4].nombre %></a>
+            <li id="Jupiter"><a href="#"  onclick="jupiter()"><%= planetas[4].nombre %></a>
                 <ul>
-                    <li id="Io"><a href="">Io</a></li>
-                    <li id="Europa"><a href="">Europa</a></li>
-                    <li id="Ganimedes"><a href="">Ganimedes</a></li>
-                    <li id="Calisto"><a href="">Calisto</a></li>
+                    <li id="Io"><a href="#"  onclick="myFunction(event)">Io</a></li>
+                    <li id="Europa"><a href="#"  onclick="myFunction(event)">Europa</a></li>
+                    <li id="Ganimedes"><a href="#"  onclick="myFunction(event)">Ganimedes</a></li>
+                    <li id="Calisto"><a href="#"  onclick="myFunction(event)">Calisto</a></li>
                 </ul>
             </li>
-            <li id="Saturno"><a href="#"><%= planetas[5].nombre %></a>
+            <li id="Saturno"><a href="#"  onclick="saturno()"><%= planetas[5].nombre %></a>
                 <ul>
-                    <li id="Mimas"><a href="">Mimas</a></li>
-                    <li id="Encelado"><a href="">Encelado</a></li>
-                    <li id="Tetis"><a href="">Tetis</a></li>
-                    <li id="Rea"><a href="">Rea</a></li>
-                    <li id="Titan"><a href="">Titan</a></li>
-                    <li id="Hiperion"><a href="">Hiperion</a></li>
+                    <li id="Mimas"><a href="#"  onclick="myFunction(event)">Mimas</a></li>
+                    <li id="Encelado"><a href="#"  onclick="myFunction(event)">Encelado</a></li>
+                    <li id="Tetis"><a href="#"  onclick="myFunction(event)">Tetis</a></li>
+                    <li id="Rea"><a href="#"  onclick="myFunction(event)">Rea</a></li>
+                    <li id="Titan"><a href="#"  onclick="myFunction(event)">Titan</a></li>
+                    <li id="Hiperion"><a href="#" onclick="myFunction(event)">Hiperion</a></li>
                 </ul>
             </li>
-            <li id="Urano"><a href="#"><%= planetas[6].nombre %></a>
+            <li id="Urano"><a href="#" onclick="urano()"><%= planetas[6].nombre %></a>
                 <ul>
-                    <li id="Miranda"><a href="">Miranda</a></li>
-                    <li id="Ariel"><a href="">Ariel</a></li>
-                    <li id="Umbriel"><a href="">Umbriel</a></li>
-                    <li id="Titania"><a href="">Titania</a></li>
-                    <li id="Oberon"><a href="">Oberon</a></li>
+                    <li id="Miranda"><a href="#" onclick="myFunction(event)">Miranda</a></li>
+                    <li id="Ariel"><a href="#" onclick="myFunction(event)">Ariel</a></li>
+                    <li id="Umbriel"><a href="#" onclick="myFunction(event)">Umbriel</a></li>
+                    <li id="Titania"><a href="#" onclick="myFunction(event)">Titania</a></li>
+                    <li id="Oberon"><a href="#" onclick="myFunction(event)">Oberon</a></li>
                 </ul>
             </li>
-            <li id="Neptuno"><a href="#"><%= planetas[7].nombre %></a>
+            <li id="Neptuno"><a href="#" onclick="neptuno()"><%= planetas[7].nombre %></a>
                 <ul>
-                    <li id="Proteo"><a href="">Proteo</a></li>
-                    <li id="Triton"><a href="">Triton</a></li>
-                    <li id="Nereida"><a href="">Nereida</a></li>
-                    <li id="Halimede"><a href="">Halimede</a></li>
-                    <li id="Sao"><a href="">Sao</a></li>
+                    <li id="Triton"><a href="#" onclick="myFunction(event)">Triton</a></li>
                 </ul>
             </li>
-            <li id="Pluton"><a href="#"><%= planetas[8].nombre %></a>
+            <li id="Pluton"><a href="#" onclick="pluton()"><%= planetas[8].nombre %></a>
                 <ul>
-                    <li id="Caronte"><a href="">Caronte</a></li>
-                    <li id="Nix"><a href="">Nix</a></li>
-                    <li id="Estigia"><a href="">Estigia</a></li>
-                    <li id="Cerbero"><a href="">Cerbero</a></li>
-                    <li id="Hidra"><a href="">Hidra</a></li>
+                    <li id="Caronte"><a href="#" onclick="myFunction(event)">Caronte</a></li>
                 </ul>
             </li>
           </ul>
     </div>
 </div>
+
+<div id="infoMercurio" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1; display: none;">
+    <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarmercurio()">
+    <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[0].nombre %></h1></p>
+    <p style="text-align:center;padding-top: 15%;">Descripción</p>
+    <hr>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[0].descripcion%> </p>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[0].numsatelites %> </p>
+    <br>
+</div>
+
+<div id="infoVenus" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
+    <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarvenus()">
+    <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[1].nombre %></h1></p>
+    <br>
+    <p style="text-align:center;padding-top: 15%; ">Descripción</p>
+    <hr>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[1].descripcion%> </p>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[1].numsatelites %> </p>
+    <br>
+</div>
+
+<div id="infoTierra" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
+    <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrartierra()">
+    <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[2].nombre %></h1></p>
+    <br>
+    <p style="text-align:center;padding-top: 15%;">Descripción</p>
+    <hr>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[2].descripcion%> </p>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[2].numsatelites %> </p>
+    <br>
+</div>
+
+<div id="infoMarte" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
+    <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarmarte()">
+    <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[3].nombre %></h1></p>
+    <br>
+    <p style="text-align:center;padding-top: 15%;">Descripción</p>
+    <hr>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[3].descripcion%></p>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[3].numsatelites %> </p>
+    <br>
+</div>
+
+<div id="infoJupiter" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
+    <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarjupiter()">
+    <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[4].nombre %></h1></p>
+    <br>
+    <p style="text-align:center;padding-top: 15%;">Descripción</p>
+    <hr>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[4].descripcion%> </p>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[4].numsatelites %> </p>
+    <br>
+</div>
+
+<div id="infoSaturno" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
+    <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarsaturno()">
+    <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[5].nombre %></h1></p>
+    <br>
+    <p style="text-align:center;padding-top: 15%;">Descripción</p>
+    <hr>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[5].descripcion%> </p>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[5].numsatelites %> </p>
+    <br>
+</div>
+
+<div id="infoUrano" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
+    <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarurano()">
+    <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[6].nombre %></h1></p>
+    <br>
+    <p style="text-align:center;padding-top: 15%;">Descripción</p>
+    <hr>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[6].descripcion%> </p>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[6].numsatelites %> </p>
+    <br>
+</div>
+
+<div id="infoNeptuno" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
+    <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarneptuno()">
+    <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[7].nombre %></h1></p>
+    <br>
+    <p style="text-align:center;padding-top: 15%;">Descripción</p>
+    <hr>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[7].descripcion%> </p>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[7].numsatelites %> </p>
+    <br>
+</div>
+
+<div id="infoPluton" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
+    <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarpluton()">
+    <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[8].nombre %></h1></p>
+    <br>
+    <p style="text-align:center;padding-top: 15%;">Descripción</p>
+    <hr>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[8].descripcion%> </p>
+    <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[8].numsatelites %> </p>
+    <br>
+</div>
+
 <div id="camera_reset" class="button"><i class="fa-solid fa-arrows-rotate"></i></div>
 <div id="inicio" class="button"><i class="fa-solid fa-play"></i></div>
 <div id="pausa" class="button"><i class="fa-solid fa-pause"></i></div>

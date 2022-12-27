@@ -11,17 +11,14 @@ module.exports = {
             
         });
     },
-
     crear:function(req,res){
         res.render('administration/crear');
     },
-
     guardar:function(req,res){
         console.log(req.body);
         planeta.insertar(conexion,req.body,function (err){
         res.redirect('administration');});
     },
-    
     eliminar:function(req,res){
 
         planeta.retornarDatosID(conexion, req.params.id, function(err, registros){

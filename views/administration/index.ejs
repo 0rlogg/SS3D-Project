@@ -26,7 +26,7 @@
               <td> <%= planetas[planeta].nombre %> </td> 
               <td> <%= planetas[planeta].descripcion %> </td>
               <td> <%= planetas[planeta].numsatelites %> </td>
-              <td> <%= planetas[planeta].textura %> </td>
+              <td><img class="img-thumbnail" src="img/<%= planetas[planeta].textura %>"> </td>
               <td>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                   <form class="form-inline" method="get" action="/administration/editar/<%= planetas[planeta].id %>">

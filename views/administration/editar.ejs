@@ -6,23 +6,23 @@
 
     <div class="form-group">
         <label for="my-input">Nombre</label>
-        <input id="my-input" value="<%=planeta.nombre%>"  class="form-control" type="text" name="nombre">
+        <input id="my-input" value="<%=planeta.nombre%>"  class="form-control" type="text" name="nombre"  minlength="3" required>
     </div>
 
     <div class="form-group">
         <label for="my-input">Descripcion</label>
-        <input id="my-input" value="<%=planeta.descripcion%>" class="form-control" type="text" name="descripcion">
+        <input id="my-input" value="<%=planeta.descripcion%>" class="form-control" type="text" name="descripcion"  minlength="10" required>
     </div>
 
     <div class="form-group">
         <label for="my-input">Numero de satelites</label>
-        <input id="my-input" value="<%=planeta.numsatelites%>" class="form-control" type="text" name="numsatelites">
+        <input id="my-input" value="<%=planeta.numsatelites%>" class="form-control" type="text" name="numsatelites" required>
     </div>
 
     <div class="form-group">
         <label for="my-input">Imagen</label>
         <img class="img-thumbnail" src="../../img/<%=planeta.textura%>" alt="">
-        <input id="my-input" class="form-control-file" type="file" name="archivo" enctype="multipart/form-data">
+        <input id="my-input" class="form-control-file" type="file" name="textura" enctype="multipart/form-data">
     </div>
 
     <button class="btn btn-primary" type="submit">Guardar</button>

@@ -14,16 +14,16 @@ var rutaAlmacenamiento = multer.diskStorage({
     }
  });
  
- var cargar = new multer(({storage:rutaAlmacenamiento}));
+ var cargar = multer(({storage:rutaAlmacenamiento}));
 
 
 /* GET home page. */
 router.get('/administration', administrationController.index);
 router.get('/crear', administrationController.crear);
 router.get('/editar/:id', administrationController.editar);
-router.post('/', cargar.single("archivo"), administrationController.guardar);
+router.post('/', cargar.single("textura"), administrationController.guardar);
 router.post('/eliminar/:id', administrationController.eliminar);
-router.post('/actualizar', cargar.single("archivo"), administrationController.actualizar);
+router.post('/actualizar', cargar.single("textura"), administrationController.actualizar);
 
 module.exports = router;
 
