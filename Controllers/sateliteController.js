@@ -6,7 +6,7 @@ module.exports = {
 
         satelite.obtener(conexion,function (err, datos){
             console.log(datos);
-            res.render('satelites/index', 'Aplication/index', {title: 'Administration satelites', satelites:datos});
+            res.render('satelites/index', {title: 'Administration satelites', satelites:datos});
             
         });
     },
