@@ -14,18 +14,16 @@
 <div id="menu">
     <div class="boton">
         <div id="logo"><img src="./img/logo.png" alt="a" width="170px" height="30px"></div>
-        <div id="nav_menu_login" class="button"><a href="/administration"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
+        <div id="nav_menu_login" class="button"><a href="/autenticacion"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
     </div>
 </div>
 <script src="./scripts/menu.js"></script>
-
 <div id="menu_left">
     <div class="hamburger">
         <div class="line"></div>
         <div class="line"></div>
         <div class="line"></div>
     </div>
-
     <div class="menu-inner">
         <ul class="acorh">
            <li><a href="#" id="Mercurio" onclick="mercurio()"><%= planetas[0].nombre %> </a></li>
@@ -64,9 +62,9 @@
                 <ul>
                     <li id="Miranda"><a href="#" onclick="myFunction(event)">Miranda</a></li>
                     <li id="Ariel"><a href="#" onclick="myFunction(event)">Ariel</a></li>
-                    <li id="Umbriel"><a href="#" onclick="myFunction(event)">Umbriel</a></li>
+                    <li id="Umbriel"><a href="#" onclick="instrucciones()">Umbriel</a></li>
                     <li id="Titania"><a href="#" onclick="myFunction(event)">Titania</a></li>
-                    <li id="Oberon"><a href="#" onclick="myFunction(event)">Oberon</a></li>
+                    <li id="Oberon"><a href="#" onclick="myFunction()">Oberon</a></li>
                 </ul>
             </li>
             <li id="Neptuno"><a href="#" onclick="neptuno()"><%= planetas[7].nombre %></a>
@@ -82,6 +80,56 @@
           </ul>
     </div>
 </div>
+
+<div id="instrucciones" style="margin: 0 auto;text-align: center;background: #091019;display: none;color: #d0d0d2;box-shadow: 0 0 40px #3e9093;opacity: 90%;position: fixed;width: 100%;height: 100%;">
+    <div id="instrucciones-hijo" style=" margin: 0 auto; text-align: center;display: none;width: 90%;height: 90%;position: fixed;top: 10%;left: 5%;background: #091019;color: #d0d0d2;opacity: 90%;">
+        <h1>INSTRUCCIONES</h1>
+        <div class="controles">
+            <h3>CONTROLES</h3>
+
+            <br>
+            <H4>Click izquierdo</H4>
+            <br>
+            <p> - Al darle al click izquierdo y mover el raton en cualquiera de sus direcciones</p><p>podras girar la camara en cualquier direccion.</p>
+            <br>
+            <H4>Click derecho</H4>
+            <br>
+            <p> - Al darle al click izquierdo y mover el raton en cualquiera de sus direcciones</p><p>podras girar la camara en cualquier direccion.</p>
+            <br>
+            <H4>Ruleta raton hacia delante</H4>
+            <br>
+            <p> - Al darle al click izquierdo y mover el raton en cualquiera de sus direcciones</p><p>podras girar la camara en cualquier direccion.</p>            
+            <br>
+            <H4>Ruleta raton hacia atras</H4>
+            <br>
+            <p> - Al darle al click izquierdo y mover el raton en cualquiera de sus direcciones</p><p>podras girar la camara en cualquier direccion.</p>        
+        </div>
+        <div class="botones">
+            <h3>BOTONES</h3>
+            <br>
+            <H4>Boton de inicio de animacion</H4> <i class="fa-solid fa-play"></i>
+            <br>
+            <p> - Al darle al click se iniciara la animacion de los planetas.</p>
+            <br>
+            <H4>Boton de pausa de animacion</H4> <i class="fa-solid fa-pause"></i>
+            <br>
+            <p> - Al darle al click se pausara la animacion de los planetas.</p>
+            <br>
+            <H4>Boton de reinicio de camara</H4> <i class="fa-solid fa-arrows-rotate"></i>
+            <br>
+            <p> - Al darle al click se reiniciara la camara de la animacion.</p>
+            <br>
+            <H4>Boton de instrucciones</H4> <i class="fa-solid fa-circle-question"></i>
+            <br>
+            <p> - Al darle al click se abrira esta ventana, si la ventana ya esta abierta se cerrara.</p>
+            <br>
+            <H4>Boton de login</H4> <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <br>
+            <p> - Al darle al click se podra acceder al login.</p>
+        </div>
+    </div>
+</div>
+
 
 <div id="infoMercurio" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1; display: none;">
     <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarmercurio()">
@@ -119,7 +167,7 @@
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[2].numsatelites %> </p>
     <br>
 </div>
-
+info_controles
 <div id="infoMarte" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
     <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarmarte()">
     <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[3].nombre %></h1></p>
@@ -198,10 +246,12 @@
     <br>
 </div>
 
-<div id="camera_reset" class="button"><i class="fa-solid fa-arrows-rotate"></i></div>
-<div id="inicio" class="button"><i class="fa-solid fa-play"></i></div>
-<div id="pausa" class="button"><i class="fa-solid fa-pause"></i></div>
-<div id="info_controles" class="button"><i class="fa-solid fa-circle-question"></i></div>
+<div id="camera_reset" class="button" style="z-index: 1;"><i class="fa-solid fa-arrows-rotate"></i></div>
+<div id="inicio" class="button"><i class="fa-solid fa-play" style="z-index: 1;"></i></div>
+<div id="pausa" class="button"><i class="fa-solid fa-pause" style="z-index: 1;"></i></div>
+<div id="info_controles" class="button" style="z-index: 1;"><i class="fa-solid fa-circle-question" onclick="instrucciones()"></i></div>
+
+
 
 </body>
 </html>

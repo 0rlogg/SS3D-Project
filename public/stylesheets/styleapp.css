@@ -306,12 +306,130 @@ ul.acorh li button:hover {
     color: #d0d0d2;
     box-shadow: 0 0 40px #3e9093;
     
-    }
+}
 
 button {
     opacity: 90%;
     width: 298px;
     height: 25px;
 
+}
 
-    }
+#instrucciones{
+    margin: 0 auto;
+    text-align: center;
+    background: #091019;
+    display: none;
+    color: #d0d0d2;
+    box-shadow: 0 0 40px #3e9093;
+    opacity: 90%;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  #instrucciones-hijo {
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+    width: 90%;
+    height: 90%;
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    background: #091019;
+    color: #d0d0d2;
+    opacity: 90%;
+
+  }
+
+  #instrucciones-hijo h1{
+    margin-top: 15px;
+  }
+
+  #instrucciones-hijo img{
+    position: fixed; 
+    top: 11%; 
+    right: 92%; 
+    width: 25px; 
+    height: 25px;
+  }
+
+  #instrucciones-hijo .controles{
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    width: 45%;
+    height: 90%;
+    position: fixed;
+    top: 20%;
+    left: 5%;
+    color: #d0d0d2;
+
+  }
+  
+
+  #instrucciones-hijo .botones{
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    width: 45%;
+    height: 90%;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    color: #d0d0d2;
+
+  }
+
+  #instrucciones-hijo .controles h4{
+    text-align: left;
+
+  }
+
+  #instrucciones-hijo .controles p{
+    text-align: left;
+    margin-left: 70px;
+
+  }
+
+  #instrucciones-hijo .botones h4{
+    text-align: left;
+  }
+
+  #instrucciones-hijo .botones p{
+    text-align: left;
+    margin-left: 70px;
+
+  }
+
+  #instrucciones-hijo .botones .fa-solid.fa-play{
+    position: fixed;
+    left: 67%;
+    top: 25.5%;
+  }
+
+  #instrucciones-hijo .botones .fa-solid.fa-pause{
+    position: fixed;
+    left: 67%;
+    top: 35%;
+  }
+
+  #instrucciones-hijo .botones .fa-solid.fa-arrows-rotate{
+    position: fixed;
+    left: 66%;
+    top: 44.2%;
+  }
+
+  #instrucciones-hijo .botones .fa-solid.fa-circle-question{
+    position: fixed;
+    left: 63.5%;
+    top: 53.5%;
+  }
+
+  #instrucciones-hijo .botones .fa-solid.fa-arrow-right-to-bracket{
+    position: fixed;
+    left: 59%;
+    top: 63%;
+  }

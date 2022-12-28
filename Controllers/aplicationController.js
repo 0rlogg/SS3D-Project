@@ -10,9 +10,15 @@ index:function(req,res){
     planeta.obtener(conexion,function (err, datos){
         console.log(datos);
         res.render('Aplication/index', {title: 'SolarSystem', planetas:datos});
-        });
-        
+        }); 
     },
+ indexsatelites:function(req,res){
+    satelite.obtener(conexion, function(err,datos){
+        console.log(datos);
+        res.render('Aplication/index', {title: 'SolarSystem', planetas:datos});
+    });
+},
+
     guardar:function(req,res){
         console.log(req.body);
         

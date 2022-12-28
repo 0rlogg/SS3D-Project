@@ -1,0 +1,28 @@
+body{
+    background-color: #091019;
+}
+
+.container{
+
+    border: solid 1px #3e9093;
+    box-shadow: 0 0 40px #3e9093;
+}
+
+.center-div{
+    padding-top:5%;
+    padding-bottom:5%;
+
+    color: #d0d0d2;
+}
+
+.btn.btn-success{
+    padding: .4em 2em;
+}
+
+form{
+    padding: 0 3em;
+}
+
+#login .title>span{
+    font-size: .8em;
+}

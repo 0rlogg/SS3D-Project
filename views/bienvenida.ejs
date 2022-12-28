@@ -1,0 +1,12 @@
+<%- include ("layouts/cabecerabienvenida.ejs")%> 
+<style>body{background-color: #091019;} .container{border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093; }.center-div{padding-top:5%;padding-bottom:5%;color: #d0d0d2;}</style>
+<div class="text-center center-div mt-5" id="login">
+
+<h3>Bienvenido</h3>
+<h5><%=locals.user ? user:"User"  %></h5>
+<a href="/administration" class="btn btn-primary" type="button">Consola admin</a>
+<a href="/autenticacion" class="btn btn-danger" type="button">Logout</a>
+</div>
+
+
+<%- include ("layouts/pie.ejs")%> 
