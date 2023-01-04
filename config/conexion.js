@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 var conexion = mysql.createConnection({
 
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'sistemasolar'
+    host:'ss3dbd.database.windows.net',
+    user:'dmiranda',
+    password:'DogWolf1506',
+    database:'ss3d'
 });
 
 conexion.connect(
