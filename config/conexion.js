@@ -4,7 +4,7 @@ var conexion = mysql.createConnection({
     host:'ss3dbd.database.windows.net',
     user:'dmiranda',
     password:'DogWolf1506',
-    database:'ss3d'
+    database:'ss3db'
 });
 
 conexion.connect(
