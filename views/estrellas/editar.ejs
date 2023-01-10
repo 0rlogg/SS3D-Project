@@ -1,27 +1,47 @@
-<%- include ("../layouts/cabecera.ejs")%> 
+<%- include ("../layouts/cabecera.ejs")%>
 
-<form method="post" action="../actualizar/" >
-    
-    <input id="my-input" type="hidden" name="id" value="<%=estrella.id%>">
+<form method="post" action="../actualizar/">
+  <input id="my-input" type="hidden" name="id" value="<%=estrella.id%>" />
 
-    <div class="form-group">
-        <label for="my-input">Nombre</label>
-        <input id="my-input" value="<%=estrella.nombreestrella%>"  class="form-control" type="text" name="nombreestrella" minlength="3" required>
-    </div>
+  <div class="form-group">
+    <label for="my-input">Nombre</label>
+    <input
+      id="my-input"
+      value="<%=estrella.nombreestrella%>"
+      class="form-control"
+      type="text"
+      name="nombreestrella"
+      minlength="3"
+      required
+    />
+  </div>
 
-    <div class="form-group">
-        <label for="my-input">Descripcion</label>
-        <input id="my-input" value="<%=estrella.descripcion%>" class="form-control" type="text" name="descripcion" minlength="10" required>
-    </div>
+  <div class="form-group">
+    <label for="my-input">Descripcion</label>
+    <input
+      id="my-input"
+      value="<%=estrella.descripcion%>"
+      class="form-control"
+      type="text"
+      name="descripcion"
+      minlength="10"
+      required
+    />
+  </div>
 
-    <div class="form-group">
-        <label for="my-input">Imagen</label>
-        <img class="img-thumbnail" src="../../img/<%=estrella.textura%>" alt="">
-        <input id="my-input" class="form-control-file" type="file" name="textura" enctype="multipart/form-data">
-    </div>
+  <div class="form-group">
+    <label for="my-input">Imagen</label>
+    <img class="img-thumbnail" src="../../img/<%=estrella.textura%>" alt="" />
+    <input
+      id="my-input"
+      class="form-control-file"
+      type="file"
+      name="textura"
+      enctype="multipart/form-data"
+    />
+  </div>
 
-    <button class="btn btn-primary" type="submit">Guardar</button>
-
+  <button class="btn btn-primary" type="submit">Guardar</button>
 </form>
 
-<%- include ("../layouts/pie.ejs")%> 
+<%- include ("../layouts/pie.ejs")%>

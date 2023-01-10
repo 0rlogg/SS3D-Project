@@ -14,7 +14,7 @@
 <div id="menu">
     <div class="boton">
         <div id="logo"><img src="./img/logo.png" alt="a" width="170px" height="30px"></div>
-        <div id="nav_menu_login" class="button"><a href="/autenticacion"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
+        <div id="nav_menu_login" class="button"><a href="./login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
     </div>
 </div>
 <script src="./scripts/menu.js"></script>
@@ -136,10 +136,11 @@
     <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[0].nombre %></h1></p>
     <p style="text-align:center;padding-top: 15%;">Descripción</p>
     <hr>
-    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[0].descripcion%> </p>
-    <br>
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[0].numsatelites %> </p>
     <br>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[0].descripcion%> </p>
+    <br>
+
 </div>
 
 <div id="infoVenus" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
@@ -148,11 +149,12 @@
     <br>
     <p style="text-align:center;padding-top: 15%; ">Descripción</p>
     <hr>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[1].numsatelites %> </p>
+    <br>
     <br>
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[1].descripcion%> </p>
     <br>
-    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[1].numsatelites %> </p>
-    <br>
+
 </div>
 
 <div id="infoTierra" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
@@ -161,11 +163,12 @@
     <br>
     <p style="text-align:center;padding-top: 15%;">Descripción</p>
     <hr>
+    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[2].numsatelites %> </p>
+    <br>
     <br>
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[2].descripcion%> </p>
     <br>
-    <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[2].numsatelites %> </p>
-    <br>
+
 </div>
 info_controles
 <div id="infoMarte" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
@@ -174,11 +177,12 @@ info_controles
     <br>
     <p style="text-align:center;padding-top: 15%;">Descripción</p>
     <hr>
-    <br>
-    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[3].descripcion%></p>
-    <br>
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[3].numsatelites %> </p>
     <br>
+    <br>
+    <p style="text-align: justify;padding-top:2%; margin-left: 20px; margin-right: 20px;"><%= planetas[3].descripcion%></p>
+    <br>
+
 </div>
 
 <div id="infoJupiter" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
@@ -187,11 +191,12 @@ info_controles
     <br>
     <p style="text-align:center;padding-top: 15%;">Descripción</p>
     <hr>
-    <br>
-    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[4].descripcion%> </p>
-    <br>
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[4].numsatelites %> </p>
     <br>
+    <br>
+    <p style="text-align: justify;padding-top: 4%; margin-left: 20px; margin-right: 20px;"><%= planetas[4].descripcion%> </p>
+    <br>
+
 </div>
 
 <div id="infoSaturno" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
@@ -200,11 +205,12 @@ info_controles
     <br>
     <p style="text-align:center;padding-top: 15%;">Descripción</p>
     <hr>
-    <br>
-    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[5].descripcion%> </p>
-    <br>
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[5].numsatelites %> </p>
     <br>
+    <br>
+    <p style="text-align: justify;padding-top: 2%; margin-left: 20px; margin-right: 20px;"><%= planetas[5].descripcion%> </p>
+    <br>
+
 </div>
 
 <div id="infoUrano" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
@@ -213,11 +219,12 @@ info_controles
     <br>
     <p style="text-align:center;padding-top: 15%;">Descripción</p>
     <hr>
-    <br>
-    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[6].descripcion%> </p>
-    <br>
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[6].numsatelites %> </p>
     <br>
+    <br>
+    <p style="text-align: justify;padding-top: 4%; margin-left: 20px; margin-right: 20px;"><%= planetas[6].descripcion%> </p>
+    <br>
+
 </div>
 
 <div id="infoNeptuno" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
@@ -226,24 +233,24 @@ info_controles
     <br>
     <p style="text-align:center;padding-top: 15%;">Descripción</p>
     <hr>
-    <br>
-    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[7].descripcion%> </p>
-    <br>
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[7].numsatelites %> </p>
     <br>
+    <br>
+    <p style="text-align: justify;padding-top: 2%; margin-left: 20px; margin-right: 20px;"><%= planetas[7].descripcion%> </p>
+    <br>
+
 </div>
 
 <div id="infoPluton" style="position: fixed;top: 10%;right: 1%;width: 20%;height: 80%;color: #d0d0d2;background-color: #091019;opacity: 90%;border: solid 1px #3e9093;box-shadow: 0 0 40px #3e9093;z-index: 1;display: none;">
     <img src="./img/cerrar.png" alt="" style="position: fixed; top: 12%; left: 80%; width: 25px; height: 25px;" onclick="cerrarpluton()">
     <p><h1 style="text-align: center;padding-top: 15%;"><%= planetas[8].nombre %></h1></p>
-    <br>
     <p style="text-align:center;padding-top: 15%;">Descripción</p>
     <hr>
-    <br>
-    <p style="text-align: justify;padding-top: 15%; margin-left: 20px; margin-right: 20px;"><%= planetas[8].descripcion%> </p>
-    <br>
     <p style="text-align: justify;padding-top: 15%; margin-left: 20px;">Número de satelites: <%= planetas[8].numsatelites %> </p>
     <br>
+    <p style="text-align: justify; margin-left: 20px; margin-right: 20px;"><%= planetas[8].descripcion%> </p>
+    <br>
+
 </div>
 
 <div id="camera_reset" class="button" style="z-index: 1;"><i class="fa-solid fa-arrows-rotate"></i></div>
